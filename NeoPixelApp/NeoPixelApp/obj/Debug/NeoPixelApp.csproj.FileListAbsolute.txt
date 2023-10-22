@@ -1,0 +1,10 @@
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\bin\Debug\NeoPixelApp.exe.config
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\bin\Debug\NeoPixelApp.exe
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\bin\Debug\NeoPixelApp.pdb
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\obj\Debug\NeoPixelApp.csproj.AssemblyReference.cache
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\obj\Debug\NeoPixelApp.Form1.resources
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\obj\Debug\NeoPixelApp.Properties.Resources.resources
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\obj\Debug\NeoPixelApp.csproj.GenerateResource.cache
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\obj\Debug\NeoPixelApp.csproj.CoreCompileInputs.cache
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\obj\Debug\NeoPixelApp.exe
+G:\Mi unidad\personales\NeoPixel\NeoPixelApp\NeoPixelApp\obj\Debug\NeoPixelApp.pdb
