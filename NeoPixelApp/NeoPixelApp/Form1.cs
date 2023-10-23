@@ -91,33 +91,39 @@ namespace NeoPixelApp
         
         private void buttonRed_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"225,0,0,{trackBar1.Value}");
+            serialPort1.WriteLine($"225,0,0,{trackBarI.Value}");
         }
 
         private void buttonBlue_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"0,0,225,{trackBar1.Value}");
+            serialPort1.WriteLine($"0,0,225,{trackBarI.Value}");
         }
 
         private void buttonYellow_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"241, 196, 15,{trackBar1.Value}");
+            serialPort1.WriteLine($"241, 196, 15,{trackBarI.Value}");
         }
 
         private void buttonLime_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"39, 174, 96,{trackBar1.Value}");
+            serialPort1.WriteLine($"39, 174, 96,{trackBarI.Value}");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"91, 44, 111,{trackBar1.Value}");
+            serialPort1.WriteLine($"91, 44, 111,{trackBarI.Value}");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"225, 225, 225,{trackBar1.Value}");
+            serialPort1.WriteLine($"225, 225, 225,{trackBarI.Value}");
         }
+
+        private void trackBarI_Scroll(object sender, EventArgs e)
+        {
+            serialPort1.WriteLine($"{trackBarR.Value}, {trackBarG.Value}, {trackBarG.Value},{trackBarI.Value}");
+        }
+
     }
 
 }

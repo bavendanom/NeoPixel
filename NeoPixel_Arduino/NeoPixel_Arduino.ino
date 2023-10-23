@@ -6,6 +6,17 @@
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 int brightness = 255; // Brillo predeterminado al máximo (0 a 255)
 
+
+uint32_t rainbowColors[] = {
+  strip.Color(255, 0, 0),   // Rojo
+  strip.Color(255, 127, 0), // Naranja
+  strip.Color(255, 255, 0), // Amarillo
+  strip.Color(0, 255, 0),   // Verde
+  strip.Color(0, 0, 255),   // Azul
+  strip.Color(75, 0, 130),  // Índigo
+  strip.Color(148, 0, 211)  // Violeta
+};
+
 void setup() {
   strip.begin();
   strip.show(); // Inicializa todos los LEDs con los valores actuales
@@ -15,19 +26,26 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-    // Si hay datos disponibles en la comunicación serial
-    String data = Serial.readStringUntil('\n'); // Lee la cadena de datos hasta encontrar un salto de línea
-    
-    // Divide la cadena en valores RGB y brillo utilizando comas como separadores
-    int r = data.substring(0, data.indexOf(',')).toInt();
-    data = data.substring(data.indexOf(',') + 1);
-    int g = data.substring(0, data.indexOf(',')).toInt();
-    data = data.substring(data.indexOf(',') + 1);
-    int b = data.substring(0, data.indexOf(',')).toInt();
-    int brillo = data.substring(data.indexOf(',') + 1).toInt();
-    
-    // Llama a la función para configurar el color y brillo
-    setColor(r, g, b, brillo);
+     String data = Serial.readStringUntil('\n');
+    if (data.startsWith("Color")) {
+      // Comando para establecer un color y brillo: "Color R,G,B,Brillo"
+      int startIndex = data.indexOf(" ");
+      String colorData = data.substring(startIndex + 1);
+      int separator1 = colorData.indexOf(",");
+      int separator2 = colorData.lastIndexOf(",");
+      
+      int r = colorData.substring(0, separator1).toInt();
+      int g = colorData.substring(separator1 + 1, separator2).toInt();
+      int b = colorData.substring(separator2 + 1, colorData.length() - 1).toInt();
+      int brillo = brightness;
+      
+      setColor(r, g, b, brillo);
+    }
+    else if (data == "FadeColor") {
+       while (true) {  // Bucle infinito para la animación MixColor
+        fadeColorAnimation();
+       }
+    }
   }
 }
 
@@ -42,3 +60,25 @@ void setColor(int r, int g, int b, int brillo) {
   }
   strip.show(); // Actualiza la tira con el nuevo color y brillo
 }
+
+// Función para la animación Mix Color
+void fadeColorAnimation() {
+  int brillo = 100; // Brillo al máximo
+  uint32_t targetColor = rainbowColors[0];
+  uint32_t currentColor = strip.Color(0, 0, 0);
+
+  for (int i = 0; i < NUM_LEDS; i++) {
+    for (int j = 0; j < 256; j++) {
+      int r = ((currentColor >> 16) & 0xFF) + (int)(((targetColor >> 16) & 0xFF - ((currentColor >> 16) & 0xFF)) * (j / 256.0));
+      int g = ((currentColor >> 8) & 0xFF) + (int)(((targetColor >> 8) & 0xFF - ((currentColor >> 8) & 0xFF)) * (j / 256.0));
+      int b = (currentColor & 0xFF) + (int)((targetColor & 0xFF - (currentColor & 0xFF)) * (j / 256.0));
+      
+      setColor(r, g, b, brillo);
+      delay(100);
+    }
+    currentColor = targetColor;
+    targetColor = rainbowColors[(i + 1) % (sizeof(rainbowColors) / sizeof(rainbowColors[0]))];
+  }
+}
+
+
