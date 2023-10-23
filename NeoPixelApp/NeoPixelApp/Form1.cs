@@ -33,9 +33,7 @@ namespace NeoPixelApp
                 buttonBlue.Enabled = false;
                 buttonLime.Enabled = false;
 
-
-                string[] BaudRate = { "9600", "19200" };
-                comboBoxBaudRate.Items.AddRange(BaudRate);
+                comboBoxBaudRate.Text = "9600";
 
                 progressBar1.Value = 0; //barra en 0
 
@@ -91,12 +89,12 @@ namespace NeoPixelApp
         
         private void buttonRed_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"225,0,0,{trackBarI.Value}");
+            serialPort1.WriteLine($"255,0,0,{trackBarI.Value}");
         }
 
         private void buttonBlue_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"0,0,225,{trackBarI.Value}");
+            serialPort1.WriteLine($"0,0,255,{trackBarI.Value}");
         }
 
         private void buttonYellow_Click(object sender, EventArgs e)
@@ -116,13 +114,9 @@ namespace NeoPixelApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine($"225, 225, 225,{trackBarI.Value}");
+            serialPort1.WriteLine($"255, 255, 255,{trackBarI.Value}");
         }
 
-        private void trackBarI_Scroll(object sender, EventArgs e)
-        {
-            serialPort1.WriteLine($"{trackBarR.Value}, {trackBarG.Value}, {trackBarG.Value},{trackBarI.Value}");
-        }
 
     }
 
