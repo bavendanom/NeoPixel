@@ -40,9 +40,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonLime = new System.Windows.Forms.Button();
+            this.trackBarI = new System.Windows.Forms.TrackBar();
             this.buttonYellow = new System.Windows.Forms.Button();
             this.buttonBlue = new System.Windows.Forms.Button();
-            this.trackBarI = new System.Windows.Forms.TrackBar();
             this.buttonRed = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -131,6 +131,7 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.buttonLime);
+            this.groupBox2.Controls.Add(this.trackBarI);
             this.groupBox2.Controls.Add(this.buttonYellow);
             this.groupBox2.Controls.Add(this.buttonBlue);
             this.groupBox2.Controls.Add(this.buttonRed);
@@ -139,7 +140,7 @@
             this.groupBox2.Location = new System.Drawing.Point(299, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox2.Size = new System.Drawing.Size(534, 429);
+            this.groupBox2.Size = new System.Drawing.Size(509, 429);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "COLOR";
@@ -181,6 +182,18 @@
             this.buttonLime.UseVisualStyleBackColor = false;
             this.buttonLime.Click += new System.EventHandler(this.buttonLime_Click);
             // 
+            // trackBarI
+            // 
+            this.trackBarI.BackColor = System.Drawing.Color.Gray;
+            this.trackBarI.Cursor = System.Windows.Forms.Cursors.NoMoveVert;
+            this.trackBarI.Location = new System.Drawing.Point(448, 28);
+            this.trackBarI.Maximum = 100;
+            this.trackBarI.Name = "trackBarI";
+            this.trackBarI.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBarI.Size = new System.Drawing.Size(45, 382);
+            this.trackBarI.TabIndex = 1;
+            this.trackBarI.TickStyle = System.Windows.Forms.TickStyle.Both;
+            // 
             // buttonYellow
             // 
             this.buttonYellow.BackColor = System.Drawing.Color.Yellow;
@@ -206,18 +219,6 @@
             this.buttonBlue.TabIndex = 2;
             this.buttonBlue.UseVisualStyleBackColor = false;
             this.buttonBlue.Click += new System.EventHandler(this.buttonBlue_Click);
-            // 
-            // trackBarI
-            // 
-            this.trackBarI.BackColor = System.Drawing.Color.Gray;
-            this.trackBarI.Cursor = System.Windows.Forms.Cursors.NoMoveVert;
-            this.trackBarI.Location = new System.Drawing.Point(109, 278);
-            this.trackBarI.Maximum = 100;
-            this.trackBarI.Name = "trackBarI";
-            this.trackBarI.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarI.Size = new System.Drawing.Size(45, 382);
-            this.trackBarI.TabIndex = 1;
-            this.trackBarI.TickStyle = System.Windows.Forms.TickStyle.Both;
             // 
             // buttonRed
             // 
@@ -247,7 +248,6 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.trackBarI);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -255,9 +255,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarI)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

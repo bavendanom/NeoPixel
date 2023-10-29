@@ -116,8 +116,6 @@ namespace NeoPixelApp
         {
             serialPort1.WriteLine($"255, 255, 255,{trackBarI.Value}");
         }
-
-
     }
 
 }
